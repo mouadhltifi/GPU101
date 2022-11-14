@@ -1,0 +1,18 @@
+nvprof -s -o results.nvprof ./app
+
+nvprof --query-metrics
+
+nvprof --metrics NAME ./app args
+
+Usefull metrics
+• gld_efficiency (global load efficiency)
+• gst_efficiency (global store efficiency)
+• sm_efficiency (streaming multiprocessor efficiency)
+• branch_efficiency (branch divergence efficiency)
+• achieved_occupancy (achieved occupancy of the kernel)
+• warp_nonpred_execution_efficiency (efficiency of branches for non predicated warp operations
+
+!nvcc histogram.c -o histogram
+
+!nsys profile -t nvtx,cuda --stats=true --force-overwrite true --wait=all -o my_report ./histogram
+
